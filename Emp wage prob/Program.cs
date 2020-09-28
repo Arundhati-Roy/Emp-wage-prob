@@ -12,10 +12,13 @@ namespace Coding_prac
             if (empcheck == p)
             {
                 Console.WriteLine("Present");
+                Console.WriteLine("Daily wage: " + 8 * 20);
             }
             else
             {
                 Console.WriteLine("Absent");
+                Console.WriteLine("Daily wage: " + 0);
+
             }
         }
 
