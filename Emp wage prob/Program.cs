@@ -6,21 +6,33 @@ namespace Coding_prac
     {
         static void Main(string[] args)
         {
-            int p = 1;
+            ///Constraints
+            int is_part_time = 1;
+            int is_full_time = 2;
+            int emp_rate = 20;
+
+            ///Variables
+            int emphrs = 0;
+            int empwage = 0;
+
             Random random = new Random();
             int empcheck = random.Next(0, 2);
-            if (empcheck == p)
+            if (empcheck == is_part_time)
             {
-                Console.WriteLine("Present");
-                Console.WriteLine("Daily wage: " + 8 * 20);
+                emphrs = 4;
+            }
+            else if (empcheck == is_full_time)
+            {
+                emphrs = 8;
             }
             else
             {
-                Console.WriteLine("Absent");
-                Console.WriteLine("Daily wage: " + 0);
-
+                emphrs = 0;
             }
-        }
+            empwage = emphrs * emp_rate;
+            Console.WriteLine("Empployee wage" + empwage);
 
+        }
     }
+
 }
