@@ -16,24 +16,29 @@ namespace Coding_prac
             ///Variables
             int emphrs = 0;
             int empwage = 0;
-
-            Random random = new Random();
-            int empcheck = random.Next(0, 2);
-
-            switch (empcheck)
+            int totempwage = 0;
+            for (int i = 1; i < 31; i++)
             {
-                case is_part_time:
-                    emphrs = 4;
-                    break;
-                case is_full_time:
-                    emphrs = 8;
-                    break;
-                default:
-                    emphrs = 0;
-                    break;
+                Random random = new Random();
+                int empcheck = random.Next(0, 3);
+
+                switch (empcheck)
+                {
+                    case is_part_time:
+                        emphrs = 4;
+                        break;
+                    case is_full_time:
+                        emphrs = 8;
+                        break;
+                    default:
+                        emphrs = 0;
+                        break;
+                }
+                empwage = emphrs * emp_rate;
+                Console.WriteLine("Day "+ i+ " Empployee wage" + empwage);
+                totempwage += empwage;
             }
-            empwage = emphrs * emp_rate;
-            Console.WriteLine("Empployee wage" + empwage);
+            Console.WriteLine("Total Employee Wage is " + totempwage);
 
         }
     }

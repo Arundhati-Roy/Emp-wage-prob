@@ -10,3 +10,4 @@ C:\Users\priyadarshini roy\source\repos\Emp wage prob\Emp wage prob\obj\Debug\ne
 C:\Users\priyadarshini roy\source\repos\Emp wage prob\Emp wage prob\obj\Debug\netcoreapp3.1\Emp wage prob.dll
 C:\Users\priyadarshini roy\source\repos\Emp wage prob\Emp wage prob\obj\Debug\netcoreapp3.1\Emp wage prob.pdb
 C:\Users\priyadarshini roy\source\repos\Emp wage prob\Emp wage prob\obj\Debug\netcoreapp3.1\Emp wage prob.genruntimeconfig.cache
+C:\Users\priyadarshini roy\source\repos\Emp wage prob\Emp wage prob\obj\Debug\netcoreapp3.1\Emp wage prob.csprojAssemblyReference.cache
