@@ -4,23 +4,25 @@ namespace Coding_prac
 {
     class Program
     {
+        ///Constraints
         public const int is_part_time = 1;
         public const int is_full_time = 2;
+        public const int emp_rate_per_hr = 20;
+        public const int no_work_days = 2;
+        public const int max_hrs_in_mon = 10;
 
         static void Main(string[] args)
         {
-            ///Constraints
-
-            int emp_rate = 20;
 
             ///Variables
             int emphrs = 0;
-            int empwage = 0;
-            int totempwage = 0;
-            for (int i = 1; i < 31; i++)
+            int totalemphrs = 0;
+            int totalworkdays = 0;
+            while (totalemphrs <= max_hrs_in_mon && totalworkdays < no_work_days)
             {
+                totalworkdays++;
                 Random random = new Random();
-                int empcheck = random.Next(0, 3);
+                int empcheck = random.Next(0, 2);
 
                 switch (empcheck)
                 {
@@ -34,11 +36,11 @@ namespace Coding_prac
                         emphrs = 0;
                         break;
                 }
-                empwage = emphrs * emp_rate;
-                Console.WriteLine("Day "+ i+ " Empployee wage" + empwage);
-                totempwage += empwage;
+                totalemphrs += emphrs;
+                Console.WriteLine("Days:" + totalworkdays + "Emp Hrs:" + emphrs);
             }
-            Console.WriteLine("Total Employee Wage is " + totempwage);
+            int totalempwage = totalemphrs * emp_rate_per_hr;
+            Console.WriteLine("Empployee wage" + totalempwage);
 
         }
     }
