@@ -11,9 +11,8 @@ namespace Coding_prac
         public const int no_work_days = 2;
         public const int max_hrs_in_mon = 10;
 
-        static void Main(string[] args)
+        public static int WageCal()
         {
-
             ///Variables
             int emphrs = 0;
             int totalemphrs = 0;
@@ -22,7 +21,7 @@ namespace Coding_prac
             {
                 totalworkdays++;
                 Random random = new Random();
-                int empcheck = random.Next(0, 2);
+                int empcheck = random.Next(0, 3);
 
                 switch (empcheck)
                 {
@@ -40,7 +39,12 @@ namespace Coding_prac
                 Console.WriteLine("Days:" + totalworkdays + "Emp Hrs:" + emphrs);
             }
             int totalempwage = totalemphrs * emp_rate_per_hr;
-            Console.WriteLine("Empployee wage" + totalempwage);
+            return totalempwage;
+
+    }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Empployee wage" + WageCal());
 
         }
     }
