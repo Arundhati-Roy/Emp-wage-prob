@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace Coding_prac
 {
-    public class Company
+    interface Company
     {
         public string compName { get; set; }
         public int emp_rate_perHr { get; set; }
