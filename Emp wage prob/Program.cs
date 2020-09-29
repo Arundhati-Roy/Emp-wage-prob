@@ -5,12 +5,19 @@ using System.Reflection;
 
 namespace Coding_prac
 {
-    interface Company
+    public interface Computewage
+    {
+        public void adddet();
+        public void compute_wage();
+        public int getTotWage(string cName);
+    }
+    public class Company
     {
         public string compName { get; set; }
         public int emp_rate_perHr { get; set; }
         public int no_work_days { get; set; }
         public int max_hrs_in_mon { get; set; }
+        public int[] daily_wage { get; set; }
         public int cal_wage { get; set; }
         //string compName, int emp_rate_perHr, int no_work_days, int max_hrs_in_mon, int cal_wage
         public string CompanyDet()
@@ -52,7 +59,8 @@ namespace Coding_prac
                 Console.WriteLine("Total wage for " + compName1 + " is " + cw1);
                 //b.Add(cw1.ToString());
                 //new Company { Name = "Mahesh Chand", Book = "ADO.NET Programming", Price = 49.95 }; 
-                Emp.Add( new Company { compName = compName1, emp_rate_perHr = Convert.ToInt32(emp_rate_per_hr), no_work_days = Convert.ToInt32(no_of_work_days), max_hrs_in_mon = Convert.ToInt32(max_hrs_in_mon), cal_wage = cw1 });
+                Emp.Add( new Company { compName = compName1, emp_rate_perHr = Convert.ToInt32(emp_rate_per_hr), no_work_days = Convert.ToInt32(no_of_work_days), 
+                    max_hrs_in_mon = Convert.ToInt32(max_hrs_in_mon), cal_wage = cw1 });
                 //Emp.Add(new company);
                 //Emp.AddRange(b);
             }
@@ -70,6 +78,7 @@ namespace Coding_prac
             int emphrs = 0;
             int totalemphrs = 0;
             int totalworkdays = 0;
+            int[] dWageArr = new int[30];
             while (totalemphrs <= max_hrs_in_mon && totalworkdays < no_work_days)
             {
                 totalworkdays++;
@@ -88,9 +97,17 @@ namespace Coding_prac
                         emphrs = 0;
                         break;
                 }
+                int daily_wage = emphrs * emp_rate_per_hr;
+                dWageArr[totalworkdays-1] = daily_wage;
                 totalemphrs += emphrs;
                 Console.WriteLine("Days:" + totalworkdays + "Emp Hrs:" + emphrs);
             }
+            Console.WriteLine(dWageArr);
+            foreach (var item in dWageArr)
+            {
+                Console.WriteLine("Daily wage "+ item);
+            }
+
             int totalempwage = totalemphrs * emp_rate_per_hr;
             Console.WriteLine("Employee wage for company " +compName+" is "+ totalempwage);
             return totalempwage;
