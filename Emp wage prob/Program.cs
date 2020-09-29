@@ -9,22 +9,37 @@ namespace Coding_prac
         ///Constraints
         public const int is_part_time = 1;
         public const int is_full_time = 2;
-        public const int emp_rate_per_hr = 20;
-        public const int no_work_days = 2;
-        public const int max_hrs_in_mon = 100;
+        //public const int emp_rate_per_hr = 20;
+        //public const int no_work_days = 2;
+        //public const int max_hrs_in_mon = 100;
 
         static void Main(string[] args)
         {
             Console.WriteLine("Employee Wage Prob");
-            Console.WriteLine("Comp Name");
-            String compName1 = Console.ReadLine();
-            int cw1 = CalEmpWage(compName1, 28, 8, 9);
-            Console.WriteLine("Total wage for " + compName1 + " is " + cw1);
-            Console.WriteLine("Comp Name");
-            String compName2 = Console.ReadLine();
-            int cw2 = CalEmpWage(compName2, 40, 5, 6);
-            Console.WriteLine("Total wage for " + compName2 + " is " + cw2);
-
+            List<String> Emp = new List<String>();
+            Console.WriteLine("Enter no of companies: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= n; i++)
+            {
+                List<String> b = new List<String>();
+                Console.WriteLine("Comp Name");
+                String compName1 = Console.ReadLine();
+                b.Add(compName1);
+                Console.WriteLine("Emp Rate");
+                String emp_rate_per_hr = Console.ReadLine();
+                b.Add(emp_rate_per_hr);
+                Console.WriteLine("No. of working hrs");
+                String no_of_work_days = Console.ReadLine();
+                b.Add(no_of_work_days);
+                Console.WriteLine("Max work hrs in a month");
+                String max_hrs_in_mon = Console.ReadLine();
+                b.Add(max_hrs_in_mon);
+                int cw1 = CalEmpWage(compName1, Convert.ToInt32(emp_rate_per_hr),Convert.ToInt32(no_of_work_days),Convert.ToInt32(max_hrs_in_mon));
+                Console.WriteLine("Total wage for " + compName1 + " is " + cw1);
+                b.Add(cw1.ToString());
+                Emp.AddRange(b);
+            }
+            Emp.ForEach(Console.WriteLine);
         }
 
         public static int CalEmpWage(String compName, int emp_rate_per_hr, int no_work_days, int max_hrs_in_mon)
