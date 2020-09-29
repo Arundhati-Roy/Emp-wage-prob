@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace Coding_prac
 {
-    public interface Computewage
-    {
-        public void adddet();
-        public void compute_wage();
-        public int getTotWage(string cName);
-    }
+    //public interface Computewage
+    //{
+    //    public void adddet();
+    //    public void compute_wage();
+    //    public int getTotWage(string cName);
+    //}
     public class Company
     {
         public string compName { get; set; }
@@ -55,11 +55,11 @@ namespace Coding_prac
                 Console.WriteLine("Max work hrs in a month");
                 String max_hrs_in_mon = Console.ReadLine();
                 //b.Add(max_hrs_in_mon);
-                int cw1 = CalEmpWage(compName1, Convert.ToInt32(emp_rate_per_hr),Convert.ToInt32(no_of_work_days),Convert.ToInt32(max_hrs_in_mon));
-                Console.WriteLine("Total wage for " + compName1 + " is " + cw1);
+                int cw1 = CalEmpWage(compName1, Convert.ToInt32(emp_rate_per_hr), Convert.ToInt32(no_of_work_days), Convert.ToInt32(max_hrs_in_mon));
+                //Console.WriteLine("Total wage for " + compName1 + " is " + cw1);
                 //b.Add(cw1.ToString());
                 //new Company { Name = "Mahesh Chand", Book = "ADO.NET Programming", Price = 49.95 }; 
-                Emp.Add( new Company { compName = compName1, emp_rate_perHr = Convert.ToInt32(emp_rate_per_hr), no_work_days = Convert.ToInt32(no_of_work_days), 
+                Emp.Add(new Company { compName = compName1, emp_rate_perHr = Convert.ToInt32(emp_rate_per_hr), no_work_days = Convert.ToInt32(no_of_work_days),
                     max_hrs_in_mon = Convert.ToInt32(max_hrs_in_mon), cal_wage = cw1 });
                 //Emp.Add(new company);
                 //Emp.AddRange(b);
@@ -68,49 +68,58 @@ namespace Coding_prac
             {
                 Console.WriteLine($"Company Details: {i.compName}:{i.emp_rate_perHr}:{i.no_work_days}:{i.max_hrs_in_mon}:{i.cal_wage}");
             }
-        }
 
-        
+            //Query
 
-        public static int CalEmpWage(String compName, int emp_rate_per_hr, int no_work_days, int max_hrs_in_mon)
-        {
-            ///Variables
-            int emphrs = 0;
-            int totalemphrs = 0;
-            int totalworkdays = 0;
-            int[] dWageArr = new int[30];
-            while (totalemphrs <= max_hrs_in_mon && totalworkdays < no_work_days)
+            Console.WriteLine("Which company's total wage do you want?");
+            String cN = Console.ReadLine();
+            foreach (Company i in Emp)
             {
-                totalworkdays++;
-                Random random = new Random();
-                int empcheck = random.Next(0, 3);
-
-                switch (empcheck)
+                if (cN.Equals(i.compName))
                 {
-                    case is_part_time:
-                        emphrs = 4;
-                        break;
-                    case is_full_time:
-                        emphrs = 8;
-                        break;
-                    default:
-                        emphrs = 0;
-                        break;
+                    Console.WriteLine("Total Wage: " + i.cal_wage);
                 }
-                int daily_wage = emphrs * emp_rate_per_hr;
-                dWageArr[totalworkdays-1] = daily_wage;
-                totalemphrs += emphrs;
-                Console.WriteLine("Days:" + totalworkdays + "Emp Hrs:" + emphrs);
-            }
-            Console.WriteLine(dWageArr);
-            foreach (var item in dWageArr)
-            {
-                Console.WriteLine("Daily wage "+ item);
+
             }
 
-            int totalempwage = totalemphrs * emp_rate_per_hr;
-            Console.WriteLine("Employee wage for company " +compName+" is "+ totalempwage);
-            return totalempwage;
+
+
+            static int CalEmpWage(String compName, int emp_rate_per_hr, int no_work_days, int max_hrs_in_mon)
+            {
+                ///Variables
+                int emphrs = 0;
+                int totalemphrs = 0;
+                int totalworkdays = 0;
+                int[] dWageArr = new int[30];
+                while (totalemphrs <= max_hrs_in_mon && totalworkdays < no_work_days)
+                {
+                    totalworkdays++;
+                    Random random = new Random();
+                    int empcheck = random.Next(0, 3);
+
+                    switch (empcheck)
+                    {
+                        case is_part_time:
+                            emphrs = 4;
+                            break;
+                        case is_full_time:
+                            emphrs = 8;
+                            break;
+                        default:
+                            emphrs = 0;
+                            break;
+                    }
+                    //int daily_wage = emphrs * emp_rate_per_hr;
+                    //dWageArr[totalworkdays - 1] = daily_wage;
+                    totalemphrs += emphrs;
+                    Console.WriteLine("Days:" + totalworkdays + "Emp Hrs:" + emphrs);
+                }
+
+
+                int totalempwage = totalemphrs * emp_rate_per_hr;
+                Console.WriteLine("Employee wage for company " + compName + " is " + totalempwage);
+                return totalempwage;
+            }
         }
 
 
