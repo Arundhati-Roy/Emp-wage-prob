@@ -41,6 +41,10 @@
             "System.Collections.NonGeneric": {
               "target": "Package",
               "version": "[4.3.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
             }
           },
           "imports": [

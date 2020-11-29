@@ -1,4 +1,5 @@
 ﻿///using com.sun.org.apache.bcel.@internal.generic;
+using Emp_wage_prob;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -36,7 +37,7 @@ namespace Coding_prac
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Employee Wage Prob");
+            /*Console.WriteLine("Employee Wage Prob");
             List<Company> Emp = new List<Company>();
             Console.WriteLine("Enter no of companies: ");
             int n = Convert.ToInt32(Console.ReadLine());
@@ -67,7 +68,20 @@ namespace Coding_prac
             foreach (Company i in Emp)
             {
                 Console.WriteLine($"Company Details: {i.compName}:{i.emp_rate_perHr}:{i.no_work_days}:{i.max_hrs_in_mon}:{i.cal_wage}");
-            }
+            }*/
+
+            Console.WriteLine("Welcome to Employee Payroll");
+            EmpRepo repo = new EmpRepo();
+            Employee emp = new Employee();
+
+            /*emp.empId = 1;
+            emp.compId = "C1";
+            emp.empName = "AR";
+            emp.gender = "F";
+            emp.phNo = "568798089";
+            emp.addr = "Mumbai";
+*/
+            repo.GetAllEmployee();
         }
 
         
